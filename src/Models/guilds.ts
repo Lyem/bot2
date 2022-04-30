@@ -15,6 +15,11 @@ const GuildSchema = new mongoose.Schema({
     required: true
   },
 
+  lastMangaUpdate: {
+    type: Date,
+    required: true
+  },
+
   timeUpdate: {
     type: Number,
     required: true

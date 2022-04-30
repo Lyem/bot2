@@ -40,6 +40,7 @@ export const slash: Command = {
           name: interaction.guild?.name,
           timeUpdate: time,
           lastUpdate: new Date(),
+          lastMangaUpdate: new Date(),
           webHook: webhook,
           lang: lang
         })
@@ -53,6 +54,7 @@ export const slash: Command = {
               name: interaction.guild?.name,
               timeUpdate: time,
               lastUpdate: new Date(),
+              lastMangaUpdate: new Date(),
               webHook: webhook,
               lang: lang
             }
