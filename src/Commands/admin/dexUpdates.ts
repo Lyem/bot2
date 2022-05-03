@@ -1,5 +1,5 @@
 import { Command } from '../../Interfaces'
-import { Constants, Permissions } from 'discord.js'
+import { Constants, Permissions, TextChannel } from 'discord.js'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Guild = require('../../Models/guilds')
 
@@ -8,30 +8,61 @@ export const slash: Command = {
   description: 'MangaDex Lasts Updates',
   options: [
     {
-      name: 'webhook',
-      description: 'webhook',
+      name: 'channel',
+      description: 'choice the channel to rss',
       required: true,
-      type: Constants.ApplicationCommandOptionTypes.STRING
+      type: Constants.ApplicationCommandOptionTypes.CHANNEL
     },
     {
       name: 'time',
       description: 'choice the time update em seconds',
       required: true,
-      type: Constants.ApplicationCommandOptionTypes.NUMBER
+      type: Constants.ApplicationCommandOptionTypes.NUMBER,
+      choices: [
+        {
+          name: '1 H',
+          value: 3600
+        },
+        {
+          name: '30 M',
+          value: 1800
+        },
+        {
+          name: '5 M',
+          value: 300
+        },
+        {
+          name: '30 S',
+          value: 30
+        }
+      ]
     },
     {
       name: 'lang',
       description: 'lang updates',
       required: true,
-      type: Constants.ApplicationCommandOptionTypes.STRING
+      type: Constants.ApplicationCommandOptionTypes.STRING,
+      choices: [
+        {
+          name: 'Portuguese Brazil',
+          value: 'pt-br'
+        },
+        {
+          name: 'Portuguese',
+          value: 'pt'
+        }
+      ]
     }
   ],
   testOnly: false,
   run: async ({ interaction }) => {
-    const webhook = await interaction.options.getString('webhook')!
-    const lang = await interaction.options.getString('lang')!
-    const time = await interaction.options.getNumber('time')!
+    const channel = (await interaction.options.getChannel(
+      'channel'
+    )) as TextChannel
+    const lang = await interaction.options.getString('lang')
+    const time = await interaction.options.getNumber('time')
     const existGuild = await Guild.findById(interaction.guildId)
+    const webhook = await channel.createWebhook('dex')
 
     if (interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
       if (!existGuild) {
@@ -41,7 +72,7 @@ export const slash: Command = {
           timeUpdate: time,
           lastUpdate: new Date(),
           lastMangaUpdate: new Date(),
-          webHook: webhook,
+          webHook: webhook.url,
           lang: lang
         })
         await guild.save()
@@ -55,7 +86,7 @@ export const slash: Command = {
               timeUpdate: time,
               lastUpdate: new Date(),
               lastMangaUpdate: new Date(),
-              webHook: webhook,
+              webHook: webhook.url,
               lang: lang
             }
           },
