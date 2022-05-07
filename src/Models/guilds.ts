@@ -36,4 +36,4 @@ const GuildSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('guilds', GuildSchema)
+module.exports = mongoose.model('guildsteste', GuildSchema)

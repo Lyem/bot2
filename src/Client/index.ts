@@ -29,9 +29,11 @@ class Bot extends Client {
   async registerCommands({ commands, guildId }: RegisterCommandsOptions) {
     const onlyTest = commands.filter((a: any) => a.testOnly)
     const global = commands.filter((a: any) => !a.testOnly)
-    if (guildId) {
-      this.guilds.cache.get(guildId)?.commands.set(onlyTest)
-      console.log('I registered commands on the test server')
+    if (onlyTest.length != 0) {
+      if (guildId) {
+        this.guilds.cache.get(guildId)?.commands.set(onlyTest)
+        console.log('I registered commands on the test server')
+      }
     }
     if (global.length != 0) {
       this.application?.commands.set(global)
