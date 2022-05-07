@@ -1,6 +1,6 @@
 version: "3"
 services:
-  rss:
+  bot:
     container_name: bot
     build: .
     restart: unless-stopped
