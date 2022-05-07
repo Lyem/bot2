@@ -1,6 +1,6 @@
 FROM node:16.14.2-alpine
 
-WORKDIR /home/rss
+WORKDIR /home/bot
 
 COPY package.json .
 

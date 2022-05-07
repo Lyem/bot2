@@ -1,11 +1,11 @@
 version: "3"
 services:
   rss:
-    container_name: dex-rss
+    container_name: bot
     build: .
     restart: unless-stopped
     volumes:
-      - .:/home/rss
-      - /home/rss/node_modules
+      - .:/home/bot
+      - /home/bot/node_modules
     environment:
       MONGODB: ${MONGODB}
