@@ -10,6 +10,7 @@ declare namespace search {
 
   export interface Description {
     en: string
+    'pt-br': string
   }
 
   export interface Links {

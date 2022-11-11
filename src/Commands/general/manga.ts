@@ -41,7 +41,14 @@ export const slash: Command = {
     const embed = new MessageEmbed()
       .setDescription(
         `${
-          response.data.data.attributes.description.en.length > 346
+          response.data.data.attributes.description['pt-br']
+            ? response.data.data.attributes.description['pt-br'].length > 346
+              ? response.data.data.attributes.description['pt-br'].substring(
+                  0,
+                  346
+                ) + ' ...'
+              : response.data.data.attributes.description['pt-br']
+            : response.data.data.attributes.description.en.length > 346
             ? response.data.data.attributes.description.en.substring(0, 346) +
               ' ...'
             : response.data.data.attributes.description.en

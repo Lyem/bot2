@@ -9,6 +9,7 @@ declare namespace manga {
 
   export interface Description {
     en: string
+    'pt-br': string
   }
 
   export interface Links {
