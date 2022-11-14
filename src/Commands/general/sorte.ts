@@ -16,7 +16,7 @@ export const slash: Command = {
   run: async ({ interaction }) => {
     await interaction.deferReply()
     const usuario = interaction.options.getUser('user')!
-    const random = Math.floor(Math.random() * (5 - 0)) + 0
+    const random = Math.floor(Math.random() * (100 - 0)) + 0
     const embed = new MessageEmbed()
     embed.setTitle(`${usuario.username} a sua sorte é...`)
     embed.setColor(0x800000)
