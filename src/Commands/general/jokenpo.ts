@@ -7,7 +7,7 @@ export const slash: Command = {
   options: [
     {
       name: 'user',
-      description: 'Teste a sorte do usuário',
+      description: 'Dispute contra ele numa partida justa e honesta de jokenpo!',
       type: Constants.ApplicationCommandOptionTypes.USER,
       required: true
     }
