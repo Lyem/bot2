@@ -26,17 +26,17 @@ export const slash: Command = {
       embed.setDescription('Azar grande! Cara, kkk, você quem sabe...')
     } else if (random == 1) {
       embed.setImage(
-        'https://loritta.website/assets/img/actions/kiss/female_x_male/gif_378.gif'
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWfcK-jx2FkkmmYVGD7oya2TTLSyRdTMSwYA&usqp=CAU'
       )
       embed.setDescription('Azar! Puts...')
     } else if (random == 2) {
       embed.setImage(
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWfcK-jx2FkkmmYVGD7oya2TTLSyRdTMSwYA&usqp=CAU'
+        'https://media.discordapp.net/attachments/896145018782359602/1041727905237049364/Picsart_22-11-14_11-48-57-473.jpg?width=831&height=467'
       )
       embed.setDescription('Comum! É, melhor que azar né...')
     } else if (random == 3) {
       embed.setImage(
-        'https://media.discordapp.net/attachments/896145018782359602/1041727905237049364/Picsart_22-11-14_11-48-57-473.jpg?width=831&height=467'
+        'https://pbs.twimg.com/media/FMHsccoXsAQDyyJ.jpg'
       )
       embed.setDescription('Sorte!')
     } else if (random == 4) {
