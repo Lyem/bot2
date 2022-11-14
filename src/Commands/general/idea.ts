@@ -19,7 +19,7 @@ export const slash: Command = {
     const embed = new MessageEmbed()
     embed.setDescription(idea)
     const message = (await interaction.followUp({ embeds: [embed] })) as Message
-    message.react('<a:d_gaba09:1036439881846640691>')
+    message.react('<a:checkrosa:1041529881491681321>')
     message.react('<a:uncheck:1038654352564437093>')
   }
 }
