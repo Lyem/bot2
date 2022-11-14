@@ -2,7 +2,7 @@ import { Constants, MessageEmbed } from 'discord.js'
 import { Command } from '../../Interfaces'
 
 export const slash: Command = {
-  name: 'Pedra, papel ou tesoura',
+  name: 'Jokenpo',
   description: 'Que vença o mais ~~sortudo~~ melhor... cof cof',
   options: [
     {
