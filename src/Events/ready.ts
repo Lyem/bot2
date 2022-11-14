@@ -5,7 +5,7 @@ export const event: Event = {
   run: (client) => {
     client.user?.setPresence({
       status: 'online',
-      activities: [{ name: 'feira da foda', type: 'COMPETING' }]
+      activities: [{ name: 'Gaba socando fofo', type: 'LISTENING' }]
     })
     console.log(`[CLIENT]: ${client.user?.username} on air!`)
   }
