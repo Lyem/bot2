@@ -35,13 +35,11 @@ export const slash: Command = {
       )
       embed.setDescription('Comum! É, melhor que azar né...')
     } else if (random == 3) {
-      embed.setImage(
-        'https://pbs.twimg.com/media/FMHsccoXsAQDyyJ.jpg'
-      )
+      embed.setImage('https://pbs.twimg.com/media/FMHsccoXsAQDyyJ.jpg')
       embed.setDescription('Sorte!')
     } else if (random == 4) {
       embed.setImage(
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5_y6jHrGoU7jjxFDDirP28-Yj9E1-10yOYg&usqp=CAU'
+        'https://pic-bstarstatic.akamaized.net/ugc/2ccb176314a684d11d51eeb59040b121f597371b.jpg'
       )
       embed.setDescription('Sorte grande! Mandou bem!!')
     }
