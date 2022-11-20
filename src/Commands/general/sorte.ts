@@ -20,6 +20,7 @@ export const slash: Command = {
     let random = Math.floor(Math.random() * (100 - 0)) + 0
     const embed = new MessageEmbed()
     const usuarioSorte = await UsuarioSorteSchema.findById(usuario.id)
+    console.log(usuarioSorte)
     if (!usuarioSorte) {
       const usuarioDaSorte = new UsuarioSorteSchema({
         _id: usuario.id,
@@ -30,6 +31,9 @@ export const slash: Command = {
     } else {
       const anterior = new Date(usuarioSorte.tempo)
       const agora = new Date()
+      console.log(anterior)
+      console.log(agora)
+      console.log(anterior.getDay() > agora.getDay())
       if (anterior.getDay() > agora.getDay()) {
         await UsuarioSorteSchema.findByIdAndUpdate(usuario.id, {
           $set: {
