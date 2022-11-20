@@ -1,5 +1,6 @@
 import { Constants, MessageEmbed } from 'discord.js'
 import { Command } from '../../Interfaces'
+import UsuarioSorteSchema from '../../Models/usersorte'
 
 export const slash: Command = {
   name: 'sorte',
@@ -16,8 +17,32 @@ export const slash: Command = {
   run: async ({ interaction }) => {
     await interaction.deferReply()
     const usuario = interaction.options.getUser('user')!
-    const random = Math.floor(Math.random() * (100 - 0)) + 0
+    let random = Math.floor(Math.random() * (100 - 0)) + 0
     const embed = new MessageEmbed()
+    const usuarioSorte = await UsuarioSorteSchema.findById(usuario.id)
+    if (!usuarioSorte) {
+      const usuarioDaSorte = new UsuarioSorteSchema({
+        _id: usuario.id,
+        numerosorte: random,
+        tempo: new Date()
+      })
+      await usuarioDaSorte.save()
+    } else {
+      const anterior = new Date(usuarioSorte.tempo)
+      const agora = new Date()
+      if (anterior.getDay() > agora.getDay()) {
+        await UsuarioSorteSchema.findByIdAndUpdate(usuario.id, {
+          $set: {
+            _id: usuario.id,
+            numerosorte: random,
+            tempo: new Date()
+          }
+        })
+      } else {
+        random = usuarioSorte.numerosorte
+      }
+    }
+
     embed.setTitle(`${usuario.username} a sua sorte é...`)
     embed.setColor(0x800000)
     if (random == 0 || random < 10) {
