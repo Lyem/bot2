@@ -8,7 +8,9 @@ export const slash: Command = {
     await interaction.deferReply()
     const guilds = await interaction.client.guilds.cache.size
     return interaction.followUp(
-      `este bot está em: **${guilds} ${guilds > 1 ? 'servers' : 'server'}**`
+      `este bot está em: **${guilds} ${
+        guilds > 1 ? 'servidores' : 'servidor'
+      }**`
     )
   }
 }
